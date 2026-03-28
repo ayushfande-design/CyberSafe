@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post | CyberSafe Guide</title>
+
+    <!-- FIXED CSS PATH -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ✅ NAVBAR (consistent UI) -->
+    <header>
+        <nav class="main-nav">
+            <div class="logo">CyberSafe Guide</div>
+            <ul>
+                <li><a href="threats.html">Threats</a></li>
+                <li><a href="safety.html">Stay Safe</a></li>
+                <li><a href="community.html" class="active">Community</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ✅ MAIN CONTENT -->
+    <main class="content-page">
+
+        <!-- Post Section -->
+        <div id="post"></div>
+
+        <a href="community.html" class="card-link">
+            <span class="card-cta">Back to Community</span>
+        </a>
+
+        <!-- Comments Section -->
+        <div style="margin-top: 40px;">
+            <h2>Comments</h2>
+
+            <!-- Comment Input -->
+            <div class="card" style="margin-bottom: 20px;">
+                <textarea 
+                    id="commentInput" 
+                    placeholder="Share your thoughts..."
+                    style="width: 100%; min-height: 80px; margin-bottom: 10px;"
+                ></textarea>
+
+                <button onclick="addComment()" class="button">
+                    Add Comment
+                </button>
+            </div>
+
+            <!-- Comments List -->
+            <div id="comments"></div>
+        </div>
+
+    </main>
+
+    <!-- JS -->
+    <script src="../js/post.js"></script>
+
+</body>
+</html>

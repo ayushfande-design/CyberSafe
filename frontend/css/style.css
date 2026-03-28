@@ -1,0 +1,474 @@
+/* --- VARIABLES & RESET --- */
+:root {
+    --primary-bg: #fdfaf6;
+    --secondary-bg: #f0eae4;
+    --accent-color: #a37b5a;
+    --accent-hover: #8c6a4e;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #e0d9d0;
+    --white: #ffffff;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg);
+    margin: 0;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- SHARED COMPONENTS --- */
+.card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    transition: var(--transition);
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1em;
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+}
+
+/* --- NAVIGATION --- */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--text-main);
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.main-nav ul li a:hover, .main-nav ul li a.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* --- LOGIN PAGE LAYOUT --- */
+.login-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.split-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.welcome-section {
+    flex: 1;
+    background-color: var(--secondary-bg);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-section h1 {
+    color: var(--accent-color);
+    font-size: 3em;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.form-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 350px;
+}
+
+/* --- CONTENT & GRID SYSTEM --- */
+.content-page {
+    padding: 120px 5% 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- BLOG & POSTS --- */
+.single-post {
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.scam-tag {
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+/* --- COMMENT SYSTEM --- */
+#comments {
+    margin-top: 40px;
+}
+
+#comments .card {
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.vote-section {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.upvote { color: #4ade80; }
+.downvote { color: #f87171; }
+
+.comment-level-1 { margin-left: 30px; }
+.comment-level-2 { margin-left: 60px; }
+.comment-level-3 { margin-left: 90px; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+    }
+
+    .welcome-section, .form-section {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .welcome-section h1 {
+        font-size: 2.2em;
+    }
+
+    .main-nav ul {
+        display: none; /* Usually replaced by a burger menu */
+    }
+
+    .comment-level-1, .comment-level-2, .comment-level-3 {
+        margin-left: 15px;
+    }
+}
+
+/* Container for the grid */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Matches the wide card look */
+    gap: 25px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+/* Individual Card Styling */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #f0eae4; /* Light border from your secondary-bg */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* Very soft shadow as seen in image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(163, 123, 90, 0.1); /* Subtle glow using your accent color */
+}
+
+/* Card Typography */
+.card h2 {
+    color: var(--accent-color);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--light-text);
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Link Wrapper (To make the whole card clickable) */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* ================= COMMENTS CLEAN UI ================= */
+
+#comments {
+    margin-top: 20px;
+}
+
+/* Each comment */
+#comments .card {
+    position: relative;
+    margin-bottom: 12px;
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: 0.2s ease;
+}
+
+/* Subtle hover */
+#comments .card:hover {
+    background-color: #faf7f3;
+}
+
+/* Thread indentation */
+.comment-level-0 { margin-left: 0px; }
+.comment-level-1 { margin-left: 20px; }
+.comment-level-2 { margin-left: 40px; }
+.comment-level-3 { margin-left: 60px; }
+.comment-level-4 { margin-left: 80px; }
+
+/* Thread connector line (clean look) */
+#comments .card::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: var(--border-color);
+}
+
+/* First level should not have line */
+.comment-level-0::before {
+    display: none;
+}
+
+/* ================= META ================= */
+.post-meta {
+    font-size: 0.8em;
+    color: var(--light-text);
+    display: flex;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+/* ================= COMMENT TEXT ================= */
+#comments p {
+    margin: 6px 0 8px;
+    line-height: 1.5;
+}
+
+/* ================= REPLY BUTTON ================= */
+
+.reply-btn {
+    display: inline-block;
+    font-size: 0.85em;
+    color: var(--accent-color);
+    background: none;
+    border: none;
+    padding: 4px 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reply-btn:hover {
+    text-decoration: underline;
+}
+
+/* ================= REPLY BOX ================= */
+
+.reply-box {
+    margin-top: 8px;
+}
+
+.reply-box textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 6px;
+}
+
+.reply-box button {
+    width: auto;
+    padding: 6px 12px;
+    font-size: 0.85em;
+}
+
+/* Center main heading better */
+.content-page h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content-page .subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Make card clickable */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* CTA text */
+.card-cta {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Hover effect (premium feel) */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* CTA hover */
+.card:hover .card-cta {
+    text-decoration: underline;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-cta {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--accent-color);
+    transition: 0.2s ease;
+}
+
+.card-cta:hover {
+    text-decoration: underline;
+}
+
+.card:hover .card-cta {
+    transform: translateX(4px);
+}
+
+/* Fix icon size inside tips */
+.tip-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.tip-icon svg {
+    stroke: var(--accent-color);
+}
